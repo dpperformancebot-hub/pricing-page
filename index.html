@@ -5,194 +5,250 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DPperformance Coaching — Pricing</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
   @font-face {
     font-family: 'Masque';
     src: url('MASQUE__.ttf') format('truetype');
-    font-weight: normal;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --green: #7DC23E;
-    --green-dark: #5fa02e;
-  }
-
   body {
     font-family: 'Inter', sans-serif;
     background: #0a0a0a;
-    color: #ffffff;
+    color: #fff;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 24px;
   }
 
-  .container {
-    max-width: 960px;
+  .page {
     width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 0 32px;
+    align-items: start;
   }
 
-  .header {
-    text-align: center;
-    margin-bottom: 56px;
+  /* LEFT COLUMN */
+  .left {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 4px;
   }
 
-  .brand {
+  .logo img {
+    width: 160px;
+    display: block;
+  }
+
+  .tagline {
+    font-family: 'Masque', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .tagline span { color: #7DC23E; }
+
+  .subtext {
     font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #7DC23E;
-    margin-bottom: 20px;
-  }
-
-  .header h1 {
-    font-family: 'Masque', 'Inter', sans-serif;
-    font-size: 56px;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-
-  .header h1 span {
-    background: linear-gradient(135deg, #fff 0%, #888 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .header p {
-    color: #666;
-    font-size: 16px;
-    font-weight: 400;
-    max-width: 480px;
-    margin: 0 auto;
+    color: #555;
     line-height: 1.6;
   }
 
+  .onboarding {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .onboarding h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .onboarding .fee {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+
+  .onboarding .fee-label {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .onboarding .pif {
+    font-size: 12px;
+    color: #7DC23E;
+    font-weight: 500;
+    border-top: 1px solid #1e1e1e;
+    padding-top: 10px;
+    line-height: 1.5;
+  }
+
+  .includes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .includes-list li {
+    font-size: 12px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .includes-list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #7DC23E;
+    flex-shrink: 0;
+  }
+
+  /* RIGHT COLUMN — CARDS */
   .cards {
+    grid-column: 2;
+    grid-row: 1 / 4;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 12px;
+    align-items: stretch;
   }
 
   .card {
     background: #111;
-    border: 1px solid #222;
-    border-radius: 20px;
-    padding: 32px 28px;
+    border: 1px solid #1e1e1e;
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
     position: relative;
     transition: border-color 0.2s;
   }
 
-  .card:hover { border-color: #444; }
+  .card:hover { border-color: #333; }
 
   .card.popular {
     background: #fff;
     border-color: #7DC23E;
     color: #000;
-    box-shadow: 0 0 0 1px #7DC23E, 0 8px 40px rgba(125,194,62,0.15);
+    box-shadow: 0 0 0 1px #7DC23E, 0 8px 32px rgba(125,194,62,0.12);
   }
 
-  .popular-badge {
+  .badge {
     position: absolute;
-    top: -12px;
+    top: -11px;
     left: 50%;
     transform: translateX(-50%);
     background: #7DC23E;
     color: #000;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 5px 14px;
+    padding: 4px 12px;
     border-radius: 20px;
-    border: none;
     white-space: nowrap;
   }
 
-  .card-label {
-    font-size: 11px;
+  .card-tier {
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #666;
-    margin-bottom: 12px;
-  }
-
-  .card.popular .card-label { color: #999; }
-
-  .card-name {
-    font-family: 'Masque', 'Inter', sans-serif;
-    font-size: 22px;
-    font-weight: normal;
-    margin-bottom: 24px;
-    letter-spacing: 0.05em;
-  }
-
-  .card-price {
+    color: #555;
     margin-bottom: 8px;
   }
 
-  .price-amount {
-    font-size: 52px;
+  .card.popular .card-tier { color: #999; }
+
+  .card-name {
+    font-family: 'Masque', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .card-price {
+    margin-bottom: 4px;
+  }
+
+  .amount {
+    font-size: 44px;
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1;
   }
 
-  .price-period {
-    font-size: 16px;
-    font-weight: 400;
+  .period {
+    font-size: 14px;
     color: #666;
-    margin-left: 4px;
   }
 
-  .card.popular .price-period { color: #999; }
+  .card.popular .period { color: #999; }
 
-  .checkin-note {
-    font-size: 13px;
+  .checkin {
+    font-size: 12px;
     color: #555;
-    margin-bottom: 28px;
-    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 6px;
   }
 
-  .card.popular .checkin-note { color: #888; }
+  .card.popular .checkin { color: #888; }
 
   .divider {
     height: 1px;
-    background: #222;
-    margin-bottom: 24px;
+    background: #1e1e1e;
+    margin-bottom: 16px;
   }
 
-  .card.popular .divider { background: #ddd; }
+  .card.popular .divider { background: #e5e5e5; }
 
   .features {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 9px;
+    flex: 1;
   }
 
   .features li {
+    font-size: 12.5px;
+    color: #666;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: #aaa;
+    gap: 8px;
     line-height: 1.4;
   }
 
-  .card.popular .features li { color: #444; }
+  .card.popular .features li { color: #555; }
 
-  .check {
-    width: 18px;
-    height: 18px;
+  .tick {
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: #1a1a1a;
     display: flex;
@@ -202,241 +258,106 @@
     margin-top: 1px;
   }
 
-  .card.popular .check {
-    background: #000;
-  }
+  .card.popular .tick { background: #000; }
 
-  .check svg { width: 10px; height: 10px; }
-
-  .onboarding-box {
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 16px;
-    padding: 28px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    gap: 24px;
-  }
-
-  .onboarding-box .left h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    letter-spacing: -0.02em;
-  }
-
-  .onboarding-box .left p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-    max-width: 480px;
-  }
-
-  .onboarding-box .right {
-    text-align: right;
-    flex-shrink: 0;
-  }
-
-  .onboarding-box .right .fee {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-  }
-
-  .onboarding-box .right .fee-label {
-    font-size: 12px;
-    color: #555;
-    margin-top: 2px;
-  }
-
-  .pif-box {
-    background: linear-gradient(135deg, #1a2a0a 0%, #111 100%);
-    border: 1px solid #7DC23E;
-    border-radius: 16px;
-    padding: 24px 32px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 48px;
-  }
-
-  .pif-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-  }
-
-  .pif-box h3 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .pif-box p {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.5;
-  }
-
-  .pif-box p strong {
-    color: #7DC23E;
-    font-weight: 600;
-  }
-
-  .includes {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
-  .includes h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-    color: #888;
-  }
-
-  .includes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-
-  .include-item {
-    background: #111;
-    border: 1px solid #1e1e1e;
-    border-radius: 12px;
-    padding: 16px 20px;
-    font-size: 14px;
-    color: #777;
-    text-align: left;
-  }
-
-  .include-item strong {
-    display: block;
-    color: #ccc;
-    font-weight: 600;
-    margin-bottom: 4px;
-    font-size: 14px;
-  }
+  .tick svg { width: 8px; height: 8px; }
 
   .footer {
-    text-align: center;
-    color: #444;
-    font-size: 12px;
+    grid-column: 2;
+    font-size: 11px;
+    color: #333;
+    padding-top: 16px;
     border-top: 1px solid #1a1a1a;
-    padding-top: 24px;
-  }
-
-  @media (max-width: 768px) {
-    .cards { grid-template-columns: 1fr; }
-    .header h1 { font-size: 32px; }
-    .onboarding-box { flex-direction: column; align-items: flex-start; }
-    .onboarding-box .right { text-align: left; }
-    .includes-grid { grid-template-columns: 1fr 1fr; }
+    margin-top: 16px;
   }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="page">
 
-  <div class="header">
-    <img src="logo.svg" alt="DP Performance Coaching" style="height:80px; margin-bottom:24px; display:block; margin-left:auto; margin-right:auto;">
-    <h1><span>Results-driven coaching.<br>Pick your pace.</span></h1>
-    <p>16-week minimum commitment. Custom program built for you from day one.</p>
+  <div class="left">
+    <div class="logo">
+      <img src="logo.svg" alt="DP Performance Coaching">
+    </div>
+
+    <div class="tagline">Results-driven<br>coaching.<br><span>Pick your pace.</span></div>
+
+    <p class="subtext">16-week minimum commitment. Your program is built from scratch on day one.</p>
+
+    <div class="onboarding">
+      <h4>One-time onboarding</h4>
+      <div class="fee">$300</div>
+      <div class="fee-label">covers full program setup</div>
+      <div class="pif">💰 Pay in full & drop it to $100</div>
+    </div>
+
+    <ul class="includes-list">
+      <li>Custom training program</li>
+      <li>Personalised nutrition plan</li>
+      <li>Supplement protocol</li>
+      <li>Cardio protocol</li>
+      <li>DPperformance app access</li>
+      <li>Direct coach messaging</li>
+    </ul>
   </div>
 
   <div class="cards">
 
     <div class="card">
-      <div class="card-label">Starter</div>
-      <div class="card-name">Fortnightly Loom</div>
+      <div class="card-tier">Starter</div>
+      <div class="card-name">Fortnightly<br>Loom</div>
       <div class="card-price">
-        <span class="price-amount">$80</span><span class="price-period">/week</span>
+        <span class="amount">$80</span><span class="period">/wk</span>
       </div>
-      <div class="checkin-note">Check-in every 2 weeks via Loom video</div>
+      <div class="checkin">Check-in every 2 weeks via Loom</div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom training program</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom nutrition plan</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio protocol</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access & messaging</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fortnightly program updates</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom program</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition plan</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fortnightly updates</li>
       </ul>
     </div>
 
     <div class="card popular">
-      <div class="popular-badge">⭐ Most Popular</div>
-      <div class="card-label">Best Value</div>
-      <div class="card-name">Weekly Loom</div>
+      <div class="badge">⭐ Most Popular</div>
+      <div class="card-tier">Best Value</div>
+      <div class="card-name">Weekly<br>Loom</div>
       <div class="card-price">
-        <span class="price-amount">$110</span><span class="price-period">/week</span>
+        <span class="amount">$110</span><span class="period">/wk</span>
       </div>
-      <div class="checkin-note">Check-in every week via Loom video</div>
+      <div class="checkin">Check-in every week via Loom</div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom training program</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom nutrition plan</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio protocol</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access & messaging</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Weekly program updates</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom program</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition plan</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Weekly updates</li>
       </ul>
     </div>
 
     <div class="card">
-      <div class="card-label">Premium</div>
-      <div class="card-name">Fortnightly Video Call</div>
+      <div class="card-tier">Premium</div>
+      <div class="card-name">Fortnightly<br>Video Call</div>
       <div class="card-price">
-        <span class="price-amount">$180</span><span class="price-period">/week</span>
+        <span class="amount">$180</span><span class="period">/wk</span>
       </div>
-      <div class="checkin-note">Live 1:1 call with your coach every 2 weeks</div>
+      <div class="checkin">Live 1:1 call every 2 weeks</div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom training program</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom nutrition plan</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio protocol</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access & messaging</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Live face-to-face accountability</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom program</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition plan</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access</li>
+        <li><span class="tick"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2 3-3" stroke="#7DC23E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Live face-to-face coaching</li>
       </ul>
     </div>
 
   </div>
 
-  <div class="onboarding-box">
-    <div class="left">
-      <h3>One-time onboarding fee</h3>
-      <p>Covers your full program setup — training plan, nutrition plan, supplement stack, cardio protocol, and app onboarding. Applied once at the start of your journey.</p>
-    </div>
-    <div class="right">
-      <div class="fee">$300</div>
-      <div class="fee-label">one-time</div>
-    </div>
-  </div>
-
-  <div class="pif-box">
-    <div class="pif-icon">💰</div>
-    <div>
-      <h3>Pay in full & save</h3>
-      <p>Pay your full 16-week program upfront and your onboarding fee drops from <strong>$300 → $100</strong>. That's $200 back in your pocket.</p>
-    </div>
-  </div>
-
-  <div class="includes">
-    <h2>Everything included</h2>
-    <div class="includes-grid">
-      <div class="include-item"><strong>Custom Training Plan</strong>Built around your goals, equipment & schedule</div>
-      <div class="include-item"><strong>Nutrition Plan</strong>Tailored macros, meal timing & food choices</div>
-      <div class="include-item"><strong>Supplement Protocol</strong>What to take, when to take it, and why</div>
-      <div class="include-item"><strong>Cardio Protocol</strong>Structured cardio that supports your goal</div>
-      <div class="include-item"><strong>DPperformance App</strong>Track workouts, log check-ins, message your coach</div>
-      <div class="include-item"><strong>Regular Plan Updates</strong>Your program evolves as you do</div>
-    </div>
-  </div>
-
-  <div class="footer">
-    All prices in AUD · 16-week minimum term · Payments processed fortnightly via Newie
-  </div>
+  <p class="footer">All prices AUD · 16-week minimum · Payments processed fortnightly via Newie</p>
 
 </div>
 </body>
