@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPperformance Coaching — Pricing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @font-face {
+    font-family: 'Masque';
+    src: url('MASQUE__.ttf') format('truetype');
+    font-weight: normal;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #7DC23E;
+    --green-dark: #5fa02e;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 960px;
+    width: 100%;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7DC23E;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-family: 'Masque', 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .header h1 span {
+    background: linear-gradient(135deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header p {
+    color: #666;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: #444; }
+
+  .card.popular {
+    background: #fff;
+    border-color: #7DC23E;
+    color: #000;
+    box-shadow: 0 0 0 1px #7DC23E, 0 8px 40px rgba(125,194,62,0.15);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #7DC23E;
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: none;
+    white-space: nowrap;
+  }
+
+  .card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 12px;
+  }
+
+  .card.popular .card-label { color: #999; }
+
+  .card-name {
+    font-family: 'Masque', 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .card-price {
+    margin-bottom: 8px;
+  }
+
+  .price-amount {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .price-period {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    margin-left: 4px;
+  }
+
+  .card.popular .price-period { color: #999; }
+
+  .checkin-note {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .card.popular .checkin-note { color: #888; }
+
+  .divider {
+    height: 1px;
+    background: #222;
+    margin-bottom: 24px;
+  }
+
+  .card.popular .divider { background: #ddd; }
+
+  .features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.4;
+  }
+
+  .card.popular .features li { color: #444; }
+
+  .check {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .card.popular .check {
+    background: #000;
+  }
+
+  .check svg { width: 10px; height: 10px; }
+
+  .onboarding-box {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 24px;
+  }
+
+  .onboarding-box .left h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+
+  .onboarding-box .left p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    max-width: 480px;
+  }
+
+  .onboarding-box .right {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .onboarding-box .right .fee {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .onboarding-box .right .fee-label {
+    font-size: 12px;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  .pif-box {
+    background: linear-gradient(135deg, #1a2a0a 0%, #111 100%);
+    border: 1px solid #7DC23E;
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .pif-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .pif-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .pif-box p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .pif-box p strong {
+    color: #7DC23E;
+    font-weight: 600;
+  }
+
+  .includes {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .includes h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    color: #888;
+  }
+
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .include-item {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #777;
+    text-align: left;
+  }
+
+  .include-item strong {
+    display: block;
+    color: #ccc;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .footer {
+    text-align: center;
+    color: #444;
+    font-size: 12px;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .cards { grid-template-columns: 1fr; }
+    .header h1 { font-size: 32px; }
+    .onboarding-box { flex-direction: column; align-items: flex-start; }
+    .onboarding-box .right { text-align: left; }
+    .includes-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <img src="logo.svg" alt="DP Performance Coaching" style="height:80px; margin-bottom:24px; display:block; margin-left:auto; margin-right:auto;">
+    <h1><span>Results-driven coaching.<br>Pick your pace.</span></h1>
+    <p>16-week minimum commitment. Custom program built for you from day one.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-label">Starter</div>
+      <div class="card-name">Fortnightly Loom</div>
+      <div class="card-price">
+        <span class="price-amount">$80</span><span class="price-period">/week</span>
+      </div>
+      <div class="checkin-note">Check-in every 2 weeks via Loom video</div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom training program</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom nutrition plan</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio protocol</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access & messaging</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fortnightly program updates</li>
+      </ul>
+    </div>
+
+    <div class="card popular">
+      <div class="popular-badge">⭐ Most Popular</div>
+      <div class="card-label">Best Value</div>
+      <div class="card-name">Weekly Loom</div>
+      <div class="card-price">
+        <span class="price-amount">$110</span><span class="price-period">/week</span>
+      </div>
+      <div class="checkin-note">Check-in every week via Loom video</div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom training program</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom nutrition plan</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio protocol</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access & messaging</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Weekly program updates</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Premium</div>
+      <div class="card-name">Fortnightly Video Call</div>
+      <div class="card-price">
+        <span class="price-amount">$180</span><span class="price-period">/week</span>
+      </div>
+      <div class="checkin-note">Live 1:1 call with your coach every 2 weeks</div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom training program</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom nutrition plan</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supplement & cardio protocol</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>App access & messaging</li>
+        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Live face-to-face accountability</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="onboarding-box">
+    <div class="left">
+      <h3>One-time onboarding fee</h3>
+      <p>Covers your full program setup — training plan, nutrition plan, supplement stack, cardio protocol, and app onboarding. Applied once at the start of your journey.</p>
+    </div>
+    <div class="right">
+      <div class="fee">$300</div>
+      <div class="fee-label">one-time</div>
+    </div>
+  </div>
+
+  <div class="pif-box">
+    <div class="pif-icon">💰</div>
+    <div>
+      <h3>Pay in full & save</h3>
+      <p>Pay your full 16-week program upfront and your onboarding fee drops from <strong>$300 → $100</strong>. That's $200 back in your pocket.</p>
+    </div>
+  </div>
+
+  <div class="includes">
+    <h2>Everything included</h2>
+    <div class="includes-grid">
+      <div class="include-item"><strong>Custom Training Plan</strong>Built around your goals, equipment & schedule</div>
+      <div class="include-item"><strong>Nutrition Plan</strong>Tailored macros, meal timing & food choices</div>
+      <div class="include-item"><strong>Supplement Protocol</strong>What to take, when to take it, and why</div>
+      <div class="include-item"><strong>Cardio Protocol</strong>Structured cardio that supports your goal</div>
+      <div class="include-item"><strong>DPperformance App</strong>Track workouts, log check-ins, message your coach</div>
+      <div class="include-item"><strong>Regular Plan Updates</strong>Your program evolves as you do</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    All prices in AUD · 16-week minimum term · Payments processed fortnightly via Newie
+  </div>
+
+</div>
+</body>
+</html>
