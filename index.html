@@ -12,269 +12,301 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    background: #f0f4f0;
-    color: #111;
-    min-height: 100vh;
+    background: #0a0a0a;
+    color: #fff;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 24px 32px;
+    padding: 20px 32px;
+    overflow: hidden;
   }
 
   /* HEADER */
   .header {
     width: 100%;
-    max-width: 980px;
+    max-width: 1060px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 28px;
+    margin-bottom: 10px;
   }
 
-  .header img { height: 44px; }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .header-left img {
+    height: 48px;
+  }
 
   .header-right {
     text-align: right;
-    font-size: 13px;
-    color: #888;
-    line-height: 1.6;
   }
 
-  .header-right strong { color: #111; }
+  .header-right .onboard-fee {
+    font-size: 13px;
+    color: #555;
+  }
 
-  .header-right .pif { color: #4a9e1a; font-weight: 500; }
+  .header-right .onboard-fee strong {
+    color: #fff;
+    font-weight: 700;
+  }
 
-  /* CARDS WRAPPER */
+  .header-right .pif-note {
+    font-size: 12px;
+    color: #7DC23E;
+    margin-top: 3px;
+  }
+
+  /* DIVIDER */
+  .hdivider {
+    width: 100%;
+    max-width: 1060px;
+    height: 1px;
+    background: #1e1e1e;
+    margin-bottom: 16px;
+  }
+
+  /* CARDS */
   .cards {
     width: 100%;
-    max-width: 980px;
+    max-width: 1060px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: start;
-    gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    flex: 1;
+    align-items: stretch;
   }
 
   .card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 32px 28px;
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 18px;
+    padding: 22px 22px 20px;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   .card.popular {
-    border: 2px solid #111;
-    border-radius: 4px;
-    margin: -2px 0;
-    padding-top: 0;
-    position: relative;
-    z-index: 1;
+    background: #fff;
+    border-color: #7DC23E;
+    color: #000;
+    box-shadow: 0 0 0 1px #7DC23E, 0 8px 40px rgba(125,194,62,0.14);
   }
 
-  .popular-banner {
-    background: #111;
-    color: #fff;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 10px;
-    border-radius: 2px 2px 0 0;
-    margin: 0 -2px 28px -2px;
+  .badge {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #7DC23E;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
   }
+
+  .tier {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 6px;
+  }
+  .card.popular .tier { color: #999; }
 
   .card-name {
     font-family: 'Masque', sans-serif;
-    font-size: 26px;
+    font-size: 22px;
     letter-spacing: 0.04em;
-    text-align: center;
-    margin-bottom: 10px;
-    color: #111;
+    line-height: 1.15;
+    margin-bottom: 14px;
   }
 
   .price-row {
-    text-align: center;
-    margin-bottom: 6px;
-    line-height: 1;
-  }
-
-  .currency {
-    font-size: 22px;
-    font-weight: 700;
-    vertical-align: top;
-    margin-top: 8px;
-    display: inline-block;
-    color: #111;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 4px;
   }
 
   .amount {
-    font-size: 64px;
+    font-size: 46px;
     font-weight: 800;
     letter-spacing: -0.04em;
-    color: #111;
+    line-height: 1;
   }
 
   .period {
-    display: block;
-    font-size: 13px;
-    color: #999;
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
-  .description {
-    font-size: 13.5px;
+    font-size: 14px;
     color: #666;
-    text-align: center;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    min-height: 42px;
+    font-weight: 400;
   }
+  .card.popular .period { color: #999; }
 
-  .onboard-row {
-    background: #f7f7f7;
+  .checkin-tag {
+    display: inline-block;
+    font-size: 11px;
+    background: #1a1a1a;
+    color: #666;
     border-radius: 6px;
-    padding: 10px 12px;
-    font-size: 12px;
+    padding: 4px 8px;
+    margin-bottom: 14px;
+  }
+  .card.popular .checkin-tag {
+    background: #f0f0f0;
     color: #888;
-    text-align: center;
-    margin-bottom: 20px;
-    line-height: 1.6;
   }
 
-  .onboard-row strong { color: #333; }
+  /* Onboarding inline */
+  .onboard-inline {
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 6px;
+  }
+  .onboard-inline strong { color: #aaa; }
+  .card.popular .onboard-inline { color: #999; }
+  .card.popular .onboard-inline strong { color: #333; }
 
-  .onboard-row .pif-save { color: #4a9e1a; font-weight: 600; }
+  .pif-inline {
+    font-size: 11.5px;
+    color: #7DC23E;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .card.popular .pif-inline { color: #5fa02e; }
 
   .divider {
     height: 1px;
-    background: #ebebeb;
-    margin-bottom: 18px;
+    background: #1e1e1e;
+    margin-bottom: 14px;
   }
+  .card.popular .divider { background: #e0e0e0; }
 
   .features {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     flex: 1;
   }
 
   .features li {
+    font-size: 12.5px;
+    color: #666;
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 13.5px;
-    color: #333;
-    line-height: 1.4;
+    align-items: center;
+    gap: 8px;
   }
+  .card.popular .features li { color: #555; }
 
-  .features li .icon {
-    font-size: 14px;
+  .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #7DC23E;
     flex-shrink: 0;
-    margin-top: 0px;
-    color: #4a9e1a;
-    font-weight: 700;
   }
 
   /* FOOTER */
   .footer {
     width: 100%;
-    max-width: 980px;
+    max-width: 1060px;
     font-size: 11px;
-    color: #aaa;
+    color: #2a2a2a;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 12px;
   }
 </style>
 </head>
 <body>
 
   <div class="header">
-    <img src="logo.svg" alt="DP Performance Coaching">
+    <div class="header-left">
+      <img src="logo.svg" alt="DP Performance Coaching">
+    </div>
     <div class="header-right">
-      One-time onboarding fee <strong>$300 AUD</strong> · 16-week minimum term<br>
-      <span class="pif">Pay in full upfront and onboarding drops to $100</span>
+      <div class="onboard-fee">One-time onboarding fee <strong>$300</strong> · 16-week minimum</div>
+      <div class="pif-note">💰 Pay in full upfront → onboarding drops to $100</div>
     </div>
   </div>
+
+  <div class="hdivider"></div>
 
   <div class="cards">
 
-    <!-- CARD 1 -->
     <div class="card">
-      <div class="card-name">Fortnightly Loom</div>
+      <div class="tier">Starter</div>
+      <div class="card-name">Fortnightly<br>Loom</div>
       <div class="price-row">
-        <span class="currency">$</span><span class="amount">80</span>
+        <span class="amount">$80</span><span class="period">/week</span>
       </div>
-      <span class="period">AUD per week</span>
-      <p class="description">Great for self-motivated clients who want structured check-ins without the premium.</p>
-      <div class="onboard-row">
-        Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$1,380</strong><br>
-        <span class="pif-save">Pay in full → save $200 on onboarding</span>
-      </div>
+      <div class="checkin-tag">Check-in every 2 weeks via Loom</div>
+      <div class="onboard-inline">Onboarding <strong>$300</strong> · PIF saves <strong>$200</strong></div>
+      <div class="pif-inline">16 weeks PIF = $1,280 + $100 onboarding</div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="icon">✓</span>Custom training program</li>
-        <li><span class="icon">✓</span>Personalised nutrition plan</li>
-        <li><span class="icon">✓</span>Supplement & cardio protocol</li>
-        <li><span class="icon">✓</span>DPperformance app access</li>
-        <li><span class="icon">✓</span>Check-in every 2 weeks via Loom</li>
-        <li><span class="icon">✓</span>Fortnightly program updates</li>
+        <li><span class="dot"></span>Custom training program</li>
+        <li><span class="dot"></span>Personalised nutrition plan</li>
+        <li><span class="dot"></span>Supplement & cardio protocol</li>
+        <li><span class="dot"></span>DPperformance app access</li>
+        <li><span class="dot"></span>Fortnightly program updates</li>
       </ul>
     </div>
 
-    <!-- CARD 2 - POPULAR -->
     <div class="card popular">
-      <div class="popular-banner">Our most popular plan</div>
-      <div class="card-name">Weekly Loom</div>
+      <div class="badge">⭐ Most Popular</div>
+      <div class="tier">Best Value</div>
+      <div class="card-name">Weekly<br>Loom</div>
       <div class="price-row">
-        <span class="currency">$</span><span class="amount">110</span>
+        <span class="amount">$110</span><span class="period">/week</span>
       </div>
-      <span class="period">AUD per week</span>
-      <p class="description">The sweet spot. Weekly touchpoints keep momentum high and results consistent.</p>
-      <div class="onboard-row">
-        Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$1,860</strong><br>
-        <span class="pif-save">Pay in full → save $200 on onboarding</span>
-      </div>
+      <div class="checkin-tag">Check-in every week via Loom</div>
+      <div class="onboard-inline">Onboarding <strong>$300</strong> · PIF saves <strong>$200</strong></div>
+      <div class="pif-inline">16 weeks PIF = $1,760 + $100 onboarding</div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="icon">✓</span>Custom training program</li>
-        <li><span class="icon">✓</span>Personalised nutrition plan</li>
-        <li><span class="icon">✓</span>Supplement & cardio protocol</li>
-        <li><span class="icon">✓</span>DPperformance app access</li>
-        <li><span class="icon">✓</span>Check-in every week via Loom</li>
-        <li><span class="icon">✓</span>Weekly program updates</li>
+        <li><span class="dot"></span>Custom training program</li>
+        <li><span class="dot"></span>Personalised nutrition plan</li>
+        <li><span class="dot"></span>Supplement & cardio protocol</li>
+        <li><span class="dot"></span>DPperformance app access</li>
+        <li><span class="dot"></span>Weekly program updates</li>
       </ul>
     </div>
 
-    <!-- CARD 3 -->
     <div class="card">
-      <div class="card-name">Fortnightly Video Call</div>
+      <div class="tier">Premium</div>
+      <div class="card-name">Fortnightly<br>Video Call</div>
       <div class="price-row">
-        <span class="currency">$</span><span class="amount">180</span>
+        <span class="amount">$180</span><span class="period">/week</span>
       </div>
-      <span class="period">AUD per week</span>
-      <p class="description">For clients who want real face-time and live coaching every fortnight.</p>
-      <div class="onboard-row">
-        Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$2,980</strong><br>
-        <span class="pif-save">Pay in full → save $200 on onboarding</span>
-      </div>
+      <div class="checkin-tag">Live 1:1 call with your coach every 2 weeks</div>
+      <div class="onboard-inline">Onboarding <strong>$300</strong> · PIF saves <strong>$200</strong></div>
+      <div class="pif-inline">16 weeks PIF = $2,880 + $100 onboarding</div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="icon">✓</span>Custom training program</li>
-        <li><span class="icon">✓</span>Personalised nutrition plan</li>
-        <li><span class="icon">✓</span>Supplement & cardio protocol</li>
-        <li><span class="icon">✓</span>DPperformance app access</li>
-        <li><span class="icon">✓</span>Live 1:1 video call every 2 weeks</li>
-        <li><span class="icon">✓</span>Fortnightly program updates</li>
+        <li><span class="dot"></span>Custom training program</li>
+        <li><span class="dot"></span>Personalised nutrition plan</li>
+        <li><span class="dot"></span>Supplement & cardio protocol</li>
+        <li><span class="dot"></span>DPperformance app access</li>
+        <li><span class="dot"></span>Live face-to-face accountability</li>
       </ul>
     </div>
 
   </div>
 
-  <div class="footer">All prices in AUD &nbsp;·&nbsp; Payments processed fortnightly via Newie &nbsp;·&nbsp; dpperformance.com</div>
+  <div class="footer">All prices AUD &nbsp;·&nbsp; Payments processed fortnightly via Newie &nbsp;·&nbsp; dpperformance.com</div>
 
 </body>
 </html>
