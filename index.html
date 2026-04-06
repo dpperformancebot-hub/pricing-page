@@ -20,6 +20,7 @@
   body {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 28px 40px 24px;
     min-height: 100vh;
   }
@@ -27,51 +28,60 @@
   /* HEADER */
   .header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 24px;
     flex-shrink: 0;
+    width: 100%;
+    max-width: 1100px;
+    gap: 16px;
   }
 
-  .header img { height: 52px; }
+  .header img { height: 64px; }
 
   .header-right {
     background: #111;
     border: 1px solid #2a2a2a;
     border-radius: 12px;
-    padding: 14px 22px;
-    text-align: right;
+    padding: 16px 32px;
+    text-align: center;
+    width: 100%;
   }
 
   .header-right .onboard-line {
-    font-size: 15px;
+    font-size: 17px;
     color: #aaa;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .header-right .onboard-line strong {
     color: #fff;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .header-right .pif-line {
-    font-size: 14px;
+    font-size: 16px;
     color: #7DC23E;
     font-weight: 600;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 6px;
   }
 
   /* CARDS */
   .cards {
+    width: 100%;
+    max-width: 1100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
     flex: 1;
   }
+
+  .footer { width: 100%; max-width: 1100px; }
 
   .card {
     background: #0f0f0f;
@@ -157,14 +167,16 @@
   }
 
   .checkin-tag {
-    display: inline-block;
+    display: block;
     background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    color: #777;
-    font-size: 12px;
-    border-radius: 6px;
-    padding: 5px 10px;
+    border: 1px solid #7DC23E44;
+    color: #bbb;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 9px 14px;
     margin-bottom: 16px;
+    text-align: center;
   }
 
   .pif-block {
@@ -250,12 +262,12 @@
 
     <div class="card">
       <div class="tier">Starter</div>
-      <div class="card-name">Fortnightly<br>Loom</div>
+      <div class="card-name">The Foundation</div>
       <div class="price-row">
         <span class="currency">$</span><span class="amount">80</span>
       </div>
       <span class="period">AUD per week</span>
-      <div class="checkin-tag">Check-in every 2 weeks via Loom</div>
+      <div class="checkin-tag">📹 Fortnightly check-in via Loom video</div>
       <div class="pif-block">
         <div class="ob">Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$1,380 total</strong></div>
         <div class="pif-save">↓ Pay in full → save $200 on onboarding</div>
@@ -273,12 +285,12 @@
     <div class="card popular">
       <div class="badge">⭐ Most Popular</div>
       <div class="tier">Best Value</div>
-      <div class="card-name">Weekly<br>Loom</div>
+      <div class="card-name">The Accelerator</div>
       <div class="price-row">
         <span class="currency">$</span><span class="amount">110</span>
       </div>
       <span class="period">AUD per week</span>
-      <div class="checkin-tag">Check-in every week via Loom</div>
+      <div class="checkin-tag">📹 Weekly check-in via Loom video</div>
       <div class="pif-block">
         <div class="ob">Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$1,860 total</strong></div>
         <div class="pif-save">↓ Pay in full → save $200 on onboarding</div>
@@ -290,17 +302,19 @@
         <li><span class="dot">✓</span>Supplement & cardio protocol</li>
         <li><span class="dot">✓</span>DPperformance app access</li>
         <li><span class="dot">✓</span>Weekly program updates</li>
+        <li><span class="dot">✓</span>Direct messaging with your coach</li>
+        <li><span class="dot">✓</span>Faster results — weekly accountability compounds</li>
       </ul>
     </div>
 
     <div class="card">
       <div class="tier">Premium</div>
-      <div class="card-name">Fortnightly<br>Video Call</div>
+      <div class="card-name">The Premium</div>
       <div class="price-row">
         <span class="currency">$</span><span class="amount">180</span>
       </div>
       <span class="period">AUD per week</span>
-      <div class="checkin-tag">Live 1:1 call with your coach every 2 weeks</div>
+      <div class="checkin-tag">📞 Live 1:1 video call with your coach every 2 weeks</div>
       <div class="pif-block">
         <div class="ob">Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$2,980 total</strong></div>
         <div class="pif-save">↓ Pay in full → save $200 on onboarding</div>
@@ -311,7 +325,9 @@
         <li><span class="dot">✓</span>Personalised nutrition plan</li>
         <li><span class="dot">✓</span>Supplement & cardio protocol</li>
         <li><span class="dot">✓</span>DPperformance app access</li>
-        <li><span class="dot">✓</span>Live face-to-face accountability</li>
+        <li><span class="dot">✓</span>Live face-to-face accountability every fortnight</li>
+        <li><span class="dot">✓</span>Real-time feedback, not just a Loom response</li>
+        <li><span class="dot">✓</span>Highest level of coach attention & personalisation</li>
       </ul>
     </div>
 
