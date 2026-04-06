@@ -10,239 +10,241 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
+  html, body {
+    height: 100%;
     font-family: 'Inter', sans-serif;
     background: #0a0a0a;
     color: #fff;
-    height: 100vh;
+  }
+
+  body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 32px;
-    overflow: hidden;
+    padding: 28px 40px 24px;
+    min-height: 100vh;
   }
 
   /* HEADER */
   .header {
-    width: 100%;
-    max-width: 1060px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
+    flex-shrink: 0;
   }
 
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .header-left img {
-    height: 48px;
-  }
+  .header img { height: 52px; }
 
   .header-right {
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 14px 22px;
     text-align: right;
   }
 
-  .header-right .onboard-fee {
-    font-size: 13px;
-    color: #555;
+  .header-right .onboard-line {
+    font-size: 15px;
+    color: #aaa;
+    margin-bottom: 6px;
   }
 
-  .header-right .onboard-fee strong {
+  .header-right .onboard-line strong {
     color: #fff;
     font-weight: 700;
+    font-size: 16px;
   }
 
-  .header-right .pif-note {
-    font-size: 12px;
+  .header-right .pif-line {
+    font-size: 14px;
     color: #7DC23E;
-    margin-top: 3px;
-  }
-
-  /* DIVIDER */
-  .hdivider {
-    width: 100%;
-    max-width: 1060px;
-    height: 1px;
-    background: #1e1e1e;
-    margin-bottom: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
   }
 
   /* CARDS */
   .cards {
-    width: 100%;
-    max-width: 1060px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
     flex: 1;
-    align-items: stretch;
   }
 
   .card {
-    background: #111;
-    border: 1px solid #1e1e1e;
-    border-radius: 18px;
-    padding: 22px 22px 20px;
+    background: #0f0f0f;
+    border: 1px solid #7DC23E;
+    border-radius: 16px;
+    padding: 32px 28px;
     display: flex;
     flex-direction: column;
     position: relative;
   }
 
   .card.popular {
-    background: #fff;
-    border-color: #7DC23E;
-    color: #000;
-    box-shadow: 0 0 0 1px #7DC23E, 0 8px 40px rgba(125,194,62,0.14);
+    background: #0f0f0f;
+    border: 2px solid #7DC23E;
+    box-shadow: 0 0 0 1px #7DC23E, 0 0 40px rgba(125,194,62,0.2), inset 0 0 60px rgba(125,194,62,0.04);
   }
 
   .badge {
     position: absolute;
-    top: -11px;
+    top: -16px;
     left: 50%;
     transform: translateX(-50%);
     background: #7DC23E;
     color: #000;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 4px 14px;
+    padding: 6px 20px;
     border-radius: 20px;
     white-space: nowrap;
   }
 
   .tier {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #444;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
-  .card.popular .tier { color: #999; }
+
+  .card.popular .tier { color: #7DC23E; }
 
   .card-name {
     font-family: 'Masque', sans-serif;
-    font-size: 22px;
+    font-size: 30px;
     letter-spacing: 0.04em;
-    line-height: 1.15;
-    margin-bottom: 14px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #fff;
   }
 
   .price-row {
     display: flex;
     align-items: baseline;
     gap: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+  }
+
+  .currency {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    padding-top: 10px;
   }
 
   .amount {
-    font-size: 46px;
+    font-size: 72px;
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1;
+    color: #fff;
   }
 
   .period {
-    font-size: 14px;
-    color: #666;
-    font-weight: 400;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    display: block;
   }
-  .card.popular .period { color: #999; }
 
   .checkin-tag {
     display: inline-block;
-    font-size: 11px;
     background: #1a1a1a;
-    color: #666;
-    border-radius: 6px;
-    padding: 4px 8px;
-    margin-bottom: 14px;
-  }
-  .card.popular .checkin-tag {
-    background: #f0f0f0;
-    color: #888;
-  }
-
-  /* Onboarding inline */
-  .onboard-inline {
+    border: 1px solid #2a2a2a;
+    color: #777;
     font-size: 12px;
-    color: #444;
-    margin-bottom: 6px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin-bottom: 16px;
   }
-  .onboard-inline strong { color: #aaa; }
-  .card.popular .onboard-inline { color: #999; }
-  .card.popular .onboard-inline strong { color: #333; }
 
-  .pif-inline {
-    font-size: 11.5px;
-    color: #7DC23E;
-    margin-bottom: 14px;
-    font-weight: 500;
+  .pif-block {
+    background: #141a0e;
+    border: 1px solid #2a3a1a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
   }
-  .card.popular .pif-inline { color: #5fa02e; }
+
+  .pif-block .ob {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+
+  .pif-block .ob strong { color: #bbb; }
+
+  .pif-block .pif-save {
+    font-size: 13px;
+    color: #7DC23E;
+    font-weight: 600;
+  }
 
   .divider {
     height: 1px;
     background: #1e1e1e;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
   }
-  .card.popular .divider { background: #e0e0e0; }
 
   .features {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     flex: 1;
   }
 
   .features li {
-    font-size: 12.5px;
-    color: #666;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.4;
   }
-  .card.popular .features li { color: #555; }
 
-  .dot {
-    width: 5px;
-    height: 5px;
+  .features li .dot {
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
-    background: #7DC23E;
+    border: 1.5px solid #7DC23E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    color: #7DC23E;
+    font-size: 10px;
+    font-weight: 700;
   }
 
   /* FOOTER */
   .footer {
-    width: 100%;
-    max-width: 1060px;
+    text-align: center;
     font-size: 11px;
     color: #2a2a2a;
-    text-align: center;
-    margin-top: 12px;
+    padding-top: 20px;
+    flex-shrink: 0;
   }
 </style>
 </head>
 <body>
 
   <div class="header">
-    <div class="header-left">
-      <img src="logo.svg" alt="DP Performance Coaching">
-    </div>
+    <img src="logo.svg" alt="DP Performance Coaching">
     <div class="header-right">
-      <div class="onboard-fee">One-time onboarding fee <strong>$300</strong> · 16-week minimum</div>
-      <div class="pif-note">💰 Pay in full upfront → onboarding drops to $100</div>
+      <div class="onboard-line">One-time onboarding fee <strong>$300 AUD</strong> &nbsp;·&nbsp; 16-week minimum term</div>
+      <div class="pif-line">💰 Pay in full upfront → onboarding drops to $100 (save $200)</div>
     </div>
   </div>
-
-  <div class="hdivider"></div>
 
   <div class="cards">
 
@@ -250,18 +252,21 @@
       <div class="tier">Starter</div>
       <div class="card-name">Fortnightly<br>Loom</div>
       <div class="price-row">
-        <span class="amount">$80</span><span class="period">/week</span>
+        <span class="currency">$</span><span class="amount">80</span>
       </div>
+      <span class="period">AUD per week</span>
       <div class="checkin-tag">Check-in every 2 weeks via Loom</div>
-      <div class="onboard-inline">Onboarding <strong>$300</strong> · PIF saves <strong>$200</strong></div>
-      <div class="pif-inline">16 weeks PIF = $1,280 + $100 onboarding</div>
+      <div class="pif-block">
+        <div class="ob">Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$1,380 total</strong></div>
+        <div class="pif-save">↓ Pay in full → save $200 on onboarding</div>
+      </div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="dot"></span>Custom training program</li>
-        <li><span class="dot"></span>Personalised nutrition plan</li>
-        <li><span class="dot"></span>Supplement & cardio protocol</li>
-        <li><span class="dot"></span>DPperformance app access</li>
-        <li><span class="dot"></span>Fortnightly program updates</li>
+        <li><span class="dot">✓</span>Custom training program</li>
+        <li><span class="dot">✓</span>Personalised nutrition plan</li>
+        <li><span class="dot">✓</span>Supplement & cardio protocol</li>
+        <li><span class="dot">✓</span>DPperformance app access</li>
+        <li><span class="dot">✓</span>Fortnightly program updates</li>
       </ul>
     </div>
 
@@ -270,18 +275,21 @@
       <div class="tier">Best Value</div>
       <div class="card-name">Weekly<br>Loom</div>
       <div class="price-row">
-        <span class="amount">$110</span><span class="period">/week</span>
+        <span class="currency">$</span><span class="amount">110</span>
       </div>
+      <span class="period">AUD per week</span>
       <div class="checkin-tag">Check-in every week via Loom</div>
-      <div class="onboard-inline">Onboarding <strong>$300</strong> · PIF saves <strong>$200</strong></div>
-      <div class="pif-inline">16 weeks PIF = $1,760 + $100 onboarding</div>
+      <div class="pif-block">
+        <div class="ob">Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$1,860 total</strong></div>
+        <div class="pif-save">↓ Pay in full → save $200 on onboarding</div>
+      </div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="dot"></span>Custom training program</li>
-        <li><span class="dot"></span>Personalised nutrition plan</li>
-        <li><span class="dot"></span>Supplement & cardio protocol</li>
-        <li><span class="dot"></span>DPperformance app access</li>
-        <li><span class="dot"></span>Weekly program updates</li>
+        <li><span class="dot">✓</span>Custom training program</li>
+        <li><span class="dot">✓</span>Personalised nutrition plan</li>
+        <li><span class="dot">✓</span>Supplement & cardio protocol</li>
+        <li><span class="dot">✓</span>DPperformance app access</li>
+        <li><span class="dot">✓</span>Weekly program updates</li>
       </ul>
     </div>
 
@@ -289,18 +297,21 @@
       <div class="tier">Premium</div>
       <div class="card-name">Fortnightly<br>Video Call</div>
       <div class="price-row">
-        <span class="amount">$180</span><span class="period">/week</span>
+        <span class="currency">$</span><span class="amount">180</span>
       </div>
+      <span class="period">AUD per week</span>
       <div class="checkin-tag">Live 1:1 call with your coach every 2 weeks</div>
-      <div class="onboard-inline">Onboarding <strong>$300</strong> · PIF saves <strong>$200</strong></div>
-      <div class="pif-inline">16 weeks PIF = $2,880 + $100 onboarding</div>
+      <div class="pif-block">
+        <div class="ob">Onboarding <strong>$300</strong> &nbsp;·&nbsp; PIF 16 wks = <strong>$2,980 total</strong></div>
+        <div class="pif-save">↓ Pay in full → save $200 on onboarding</div>
+      </div>
       <div class="divider"></div>
       <ul class="features">
-        <li><span class="dot"></span>Custom training program</li>
-        <li><span class="dot"></span>Personalised nutrition plan</li>
-        <li><span class="dot"></span>Supplement & cardio protocol</li>
-        <li><span class="dot"></span>DPperformance app access</li>
-        <li><span class="dot"></span>Live face-to-face accountability</li>
+        <li><span class="dot">✓</span>Custom training program</li>
+        <li><span class="dot">✓</span>Personalised nutrition plan</li>
+        <li><span class="dot">✓</span>Supplement & cardio protocol</li>
+        <li><span class="dot">✓</span>DPperformance app access</li>
+        <li><span class="dot">✓</span>Live face-to-face accountability</li>
       </ul>
     </div>
 
