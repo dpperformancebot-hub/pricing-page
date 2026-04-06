@@ -87,19 +87,21 @@
     background: #0f0f0f;
     border: 1px solid #7DC23E;
     border-radius: 16px;
-    padding: 32px 28px;
+    padding: 32px 28px 28px;
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-top: 16px;
   }
 
   .card.popular {
     background: #0f0f0f;
     border: 2px solid #7DC23E;
     box-shadow: 0 0 0 1px #7DC23E, 0 0 40px rgba(125,194,62,0.2), inset 0 0 60px rgba(125,194,62,0.04);
+    margin-top: 0;
   }
 
-  .badge-spacer { display: block; height: 22px; }
+  .badge-spacer { display: block; height: 32px; }
 
   .badge {
     position: absolute;
@@ -115,6 +117,10 @@
     padding: 6px 20px;
     border-radius: 20px;
     white-space: nowrap;
+  }
+
+  .cards {
+    align-items: start;
   }
 
   .tier {
@@ -271,7 +277,6 @@
   <div class="cards">
 
     <div class="card">
-      <span class="badge-spacer"></span>
       <div class="tier">Starter</div>
       <div class="card-name">The<br>Foundation</div>
       <div class="price-row">
@@ -323,7 +328,6 @@
     </div>
 
     <div class="card">
-      <span class="badge-spacer"></span>
       <div class="tier">Premium</div>
       <div class="card-name">The<br>Premium</div>
       <div class="price-row">
